@@ -1,28 +1,35 @@
-// Add event listener to start shopping button
-document.querySelector('.hero button').addEventListener('click', () => {
+window.addEventListener('DOMContentLoaded', () => {
+  // Section 1: Event listeners for navigation buttons
+  document.querySelector('.hero button').addEventListener('click', () => {
     window.location.href = 'shop.html';
   });
 
-  // Add event listener to find tire button
-document.querySelector('#find-tire').addEventListener('click', () => {
-    // Get selected options
-    const tireWidth = document.querySelector('#tire-width').value;
-    const tireProfile = document.querySelector('#tire-profile').value;
-    const wheelSize = document.querySelector('#wheel-size').value;
-    const tireType = document.querySelector('#tire-type').value;
-    const tireBrand = document.querySelector('#tire-brand').value;
-  
-    // Redirect to results page with selected options
-    window.location.href = `results.html?width=${tireWidth}&profile=${tireProfile}&size=${wheelSize}&type=${tireType}&brand=${tireBrand}`;
+  document.querySelector('#find-tire').addEventListener('click', () => {
+    // ...
   });
 
-  // Add event listener to checkout button
-document.querySelector('#checkout').addEventListener('click', () => {
-    // Redirect to checkout page
+  document.querySelector('#checkout').addEventListener('click', () => {
     window.location.href = 'checkout.html';
   });
-  
-  // Get tire results from server-side API (not implemented)
+
+  // Section 3: Event listener for place order button
+  document.querySelector('#place-order').addEventListener('click', () => {
+    // ...
+  });
+
+  // Section 4: Video event listeners
+  videos.forEach(video => {
+    video.addEventListener('mouseover', () => {
+      video.play();
+    });
+    video.addEventListener('mouseout', () => {
+      video.pause();
+    });
+  });
+});
+
+// Section 2: Tire results and display
+function displayTireResults() {
   const tireResults = [
     {
       id: 1,
@@ -38,8 +45,7 @@ document.querySelector('#checkout').addEventListener('click', () => {
     },
     // Add more tire results here
   ];
-  
-  // Display tire results
+
   const tireList = document.querySelector('#tire-list');
   tireResults.forEach((tire) => {
     const tireItem = document.createElement('li');
@@ -50,20 +56,7 @@ document.querySelector('#checkout').addEventListener('click', () => {
     `;
     tireList.appendChild(tireItem);
   });
+}
 
-
-  // Add event listener to place order button
-document.querySelector('#place-order').addEventListener('click', () => {
-    // Get selected tire and quantity
-    const tire = document.querySelector('#tire').value;
-    const quantity = document.querySelector('#quantity').value;
-  
-    // Calculate total price
-    const totalPrice = tire.price * quantity;
-  
-    // Display total price
-    document.querySelector('#price').innerHTML = `$${totalPrice.toFixed(2)}`;
-  
-    // Redirect to payment gateway (not implemented)
-    window.location.href = 'payment.html';
-  });
+// Call displayTireResults() when tire results are available
+displayTireResults();

@@ -89,19 +89,29 @@
     <section class="video-section">
       <h2>Watch Our Tire Videos</h2>
       <div class="video-grid">
-        <video width="100%" controls>
+        <video width="100%" id="video-1">
           <source src="4569076-hd_1920_1080_30fps.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-        <video width="100%" controls>
+        <video width="100%" id="video-2">
           <source src="tire fixing vid.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
     </section>
+    
+    <script>
+      const videos = document.querySelectorAll('video');
+    
+      videos.forEach(video => {
+        video.addEventListener('mouseover', () => {
+          video.play();
+        });
+      });
+    </script>
   </main>
   <footer>
-    <p>&copy; 2023 Westrock Enterprise</p>
+    <p>&copy; 2024 Westrock Enterprise</p>
   </footer>
   <script src="script.js"></script>
 <<<<<<< HEAD
